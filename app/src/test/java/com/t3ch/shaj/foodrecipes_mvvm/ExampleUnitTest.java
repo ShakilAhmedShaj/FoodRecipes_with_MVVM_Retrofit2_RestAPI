@@ -1,4 +1,4 @@
-package com.t3ch.shaj.foodrecipes_with_mvvm_retrofit2_restapi;
+package com.t3ch.shaj.foodrecipes_mvvm;
 
 import org.junit.Test;
 

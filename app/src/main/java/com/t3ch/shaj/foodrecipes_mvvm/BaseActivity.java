@@ -1,4 +1,4 @@
-package com.t3ch.shaj.foodrecipes_with_mvvm_retrofit2_restapi;
+package com.t3ch.shaj.foodrecipes_mvvm;
 
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -22,12 +22,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         mProgressBar = constraintLayout.findViewById(R.id.progress_bar);
 
         getLayoutInflater().inflate(layoutResID, frameLayout, true);
-
-        super.setContentView(layoutResID);
+        super.setContentView(constraintLayout);
     }
 
     public void showProgressBar(boolean visible) {
 
         mProgressBar.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
     }
+
+
 }
