@@ -1,9 +1,9 @@
 package com.t3ch.shaj.foodrecipes_mvvm.repositories;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 
 import com.t3ch.shaj.foodrecipes_mvvm.models.Recipe;
+import com.t3ch.shaj.foodrecipes_mvvm.requests.RecipeApiClient;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class RecipeRepository {
 
     private static RecipeRepository instance;
-    private MutableLiveData<List<Recipe>> mRecipes;
+    private RecipeApiClient mRecipeApiClient;
 
     public static RecipeRepository getInstance() {
         if (instance == null) {
@@ -24,12 +24,11 @@ public class RecipeRepository {
     }
 
     private RecipeRepository() {
-        mRecipes = new MutableLiveData<>();
+        mRecipeApiClient = RecipeApiClient.getInstance();
     }
 
     public LiveData<List<Recipe>> getRecipes() {
-        return mRecipes;
+        return mRecipeApiClient.getRecipes();
     }
-
 
 }
