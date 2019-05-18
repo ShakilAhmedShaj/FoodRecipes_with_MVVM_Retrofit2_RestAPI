@@ -5,6 +5,7 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.t3ch.shaj.foodrecipes_mvvm.models.Recipe;
+import com.t3ch.shaj.foodrecipes_mvvm.repositories.RecipeRepository;
 
 import java.util.List;
 
@@ -14,14 +15,18 @@ import java.util.List;
  */
 public class RecipeListViewModel extends ViewModel {
 
-    private MutableLiveData<List<Recipe>> mRecipes = new MutableLiveData<>();
+    private RecipeRepository mRecipeRepository;
+
 
     public RecipeListViewModel() {
+
+        mRecipeRepository = RecipeRepository.getInstance();
+
 
     }
 
     public LiveData<List<Recipe>> getRecipes() {
-        return mRecipes;
+        return mRecipeRepository.getRecipes();
     }
 
 }
